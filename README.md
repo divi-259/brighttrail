@@ -57,5 +57,3 @@ initial page load.
 3. Publish the `dist/` folder to the `gh-pages` branch (via the `gh-pages` npm package or
    a GitHub Actions workflow).
 4. Enable GitHub Pages for the repo, pointing at the `gh-pages` branch.
-
-See `requirements.md` §1.5 and step 14 for details.
