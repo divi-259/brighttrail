@@ -1,0 +1,41 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--status-saved-bg);
+  color: var(--status-saved-text);
+}
+
+.saved {
+  background: var(--status-saved-bg);
+  color: var(--status-saved-text);
+}
+
+.applied {
+  background: var(--status-applied-bg);
+  color: var(--status-applied-text);
+}
+
+.screening {
+  background: var(--status-screening-bg);
+  color: var(--status-screening-text);
+}
+
+.interview {
+  background: var(--status-interview-bg);
+  color: var(--status-interview-text);
+}
+
+.offer {
+  background: var(--status-offer-bg);
+  color: var(--status-offer-text);
+}
+
+.rejected {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected-text);
+}

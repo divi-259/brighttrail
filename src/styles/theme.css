@@ -1,0 +1,62 @@
+:root {
+  /* Brand palette — Butter Yellow + Charcoal */
+  --color-primary: #ebb94f;
+  --color-primary-hover: #dba638;
+  --color-dark: #30302c;
+  --color-bg: #fffcf3;
+  --color-surface: #ffffff;
+  --color-accent: #fff0bb;
+  --color-secondary: #8ca88e;
+  --color-secondary-hover: #789476;
+
+  /* Text */
+  --text-primary: #30302c;
+  --text-muted: #706f66;
+  --text-on-primary: #30302c;
+  --text-on-secondary: #ffffff;
+
+  /* Borders */
+  --border-subtle: #ece6d6;
+  --border-strong: #ddd4b8;
+
+  /* Status pill colors — derived from the core palette, kept warm/earthy */
+  --status-saved-bg: #f2efe3;
+  --status-saved-text: #67665c;
+  --status-applied-bg: #fff0bb;
+  --status-applied-text: #8a6a1e;
+  --status-screening-bg: #fde0a0;
+  --status-screening-text: #7a5a12;
+  --status-interview-bg: #e3ece1;
+  --status-interview-text: #4c6350;
+  --status-offer-bg: #dcead9;
+  --status-offer-text: #326239;
+  --status-rejected-bg: #f5e3dc;
+  --status-rejected-text: #a24e36;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(48, 48, 44, 0.06);
+  --shadow-md: 0 4px 16px rgba(48, 48, 44, 0.08);
+  --shadow-lg: 0 16px 40px rgba(48, 48, 44, 0.14);
+
+  /* Typography */
+  --font-heading: "Quicksand", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  color-scheme: light;
+}

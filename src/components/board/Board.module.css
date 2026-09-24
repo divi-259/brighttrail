@@ -1,0 +1,159 @@
+.board {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  align-items: flex-start;
+}
+
+.column {
+  background: var(--color-accent);
+  border-radius: var(--radius-lg);
+  min-width: 270px;
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 220px);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) var(--space-2);
+}
+
+.columnHeader h3 {
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--status-saved-text);
+}
+
+.saved {
+  background: var(--status-saved-text);
+}
+.applied {
+  background: var(--status-applied-text);
+}
+.screening {
+  background: var(--status-screening-text);
+}
+.interview {
+  background: var(--status-interview-text);
+}
+.offer {
+  background: var(--status-offer-text);
+}
+.rejected {
+  background: var(--status-rejected-text);
+}
+
+.count {
+  background: rgba(48, 48, 44, 0.08);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  padding: 1px 8px;
+}
+
+.columnBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0 var(--space-3) var(--space-3);
+  overflow-y: auto;
+  flex: 1;
+  min-height: 80px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  transition: background 0.12s ease;
+}
+
+.columnBodyOver {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.emptyColumn {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-4) var(--space-2);
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  touch-action: none;
+  transition: box-shadow 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.cardDragging {
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  opacity: 0.9;
+}
+
+.cardCompany {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.cardTitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.cardMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tagChip {
+  background: var(--color-bg);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 720px) {
+  .column {
+    min-width: 240px;
+    max-width: 240px;
+  }
+}
