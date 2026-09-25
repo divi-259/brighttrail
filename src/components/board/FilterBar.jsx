@@ -1,9 +1,23 @@
 import { Search } from "lucide-react";
+import Select from "../ui/Select";
 import styles from "./FilterBar.module.css";
 import { SOURCES, STATUSES } from "../../lib/statuses";
 
 export default function FilterBar({ filters, onChange, allTags }) {
-  const set = (key) => (e) => onChange({ ...filters, [key]: e.target.value });
+  const setField = (key) => (value) => onChange({ ...filters, [key]: value });
+
+  const statusOptions = [
+    { value: "", label: "All statuses" },
+    ...STATUSES.map((s) => ({ value: s.id, label: s.label })),
+  ];
+  const sourceOptions = [
+    { value: "", label: "All sources" },
+    ...SOURCES.map((s) => ({ value: s, label: s })),
+  ];
+  const tagOptions = [
+    { value: "", label: "All tags" },
+    ...allTags.map((tag) => ({ value: tag, label: tag })),
+  ];
 
   return (
     <div className={styles.bar}>
@@ -13,36 +27,13 @@ export default function FilterBar({ filters, onChange, allTags }) {
           className={styles.search}
           placeholder="Search by company or role…"
           value={filters.query}
-          onChange={set("query")}
+          onChange={(e) => setField("query")(e.target.value)}
         />
       </div>
 
-      <select className={styles.select} value={filters.status} onChange={set("status")}>
-        <option value="">All statuses</option>
-        {STATUSES.map((s) => (
-          <option key={s.id} value={s.id}>
-            {s.label}
-          </option>
-        ))}
-      </select>
-
-      <select className={styles.select} value={filters.source} onChange={set("source")}>
-        <option value="">All sources</option>
-        {SOURCES.map((s) => (
-          <option key={s} value={s}>
-            {s}
-          </option>
-        ))}
-      </select>
-
-      <select className={styles.select} value={filters.tag} onChange={set("tag")}>
-        <option value="">All tags</option>
-        {allTags.map((tag) => (
-          <option key={tag} value={tag}>
-            {tag}
-          </option>
-        ))}
-      </select>
+      <Select variant="pill" value={filters.status} onChange={setField("status")} options={statusOptions} />
+      <Select variant="pill" value={filters.source} onChange={setField("source")} options={sourceOptions} />
+      <Select variant="pill" value={filters.tag} onChange={setField("tag")} options={tagOptions} />
     </div>
   );
 }

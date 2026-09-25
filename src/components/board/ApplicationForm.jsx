@@ -65,13 +65,13 @@ export default function ApplicationForm({ initialValue, onSave, onClose, onDelet
         </div>
 
         <div className={fieldStyles.row}>
-          <Select label="Status" value={values.status} onChange={set("status")}>
-            {STATUSES.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.label}
-              </option>
-            ))}
-          </Select>
+          <Select
+            label="Status"
+            id="status"
+            value={values.status}
+            onChange={(status) => setValues((v) => ({ ...v, status }))}
+            options={STATUSES.map((s) => ({ value: s.id, label: s.label }))}
+          />
           <Input label="Application date" type="date" value={values.appliedDate} onChange={set("appliedDate")} />
         </div>
 
@@ -87,14 +87,13 @@ export default function ApplicationForm({ initialValue, onSave, onClose, onDelet
           <Input label="Contact email / LinkedIn" value={values.contactInfo} onChange={set("contactInfo")} />
         </div>
 
-        <Select label="Source" value={values.source} onChange={set("source")}>
-          <option value="">Select a source…</option>
-          {SOURCES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </Select>
+        <Select
+          label="Source"
+          id="source"
+          value={values.source}
+          onChange={(source) => setValues((v) => ({ ...v, source }))}
+          options={[{ value: "", label: "Select a source…" }, ...SOURCES.map((s) => ({ value: s, label: s }))]}
+        />
 
         <TagInput label="Tags" value={values.tags} onChange={(tags) => setValues((v) => ({ ...v, tags }))} />
 
