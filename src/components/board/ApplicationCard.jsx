@@ -9,26 +9,11 @@ function formatDate(dateStr) {
   return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-export default function ApplicationCard({ application, onClick }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: application.id,
-  });
-
-  const style = transform
-    ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` }
-    : undefined;
-
+function CardBody({ application }) {
   const dateLabel = formatDate(application.appliedDate);
 
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      className={`${styles.card} ${isDragging ? styles.cardDragging : ""}`}
-      onClick={onClick}
-      {...listeners}
-      {...attributes}
-    >
+    <>
       <p className={styles.cardCompany}>{application.company || "Untitled company"}</p>
       <p className={styles.cardTitle}>{application.title || "Untitled role"}</p>
 
@@ -54,6 +39,32 @@ export default function ApplicationCard({ application, onClick }) {
           ))}
         </div>
       )}
+    </>
+  );
+}
+
+export function ApplicationCardOverlay({ application }) {
+  return (
+    <div className={`${styles.card} ${styles.cardOverlayGhost}`}>
+      <CardBody application={application} />
+    </div>
+  );
+}
+
+export default function ApplicationCard({ application, onClick }) {
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id: application.id,
+  });
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={`${styles.card} ${isDragging ? styles.cardPlaceholder : ""}`}
+      onClick={onClick}
+      {...listeners}
+      {...attributes}
+    >
+      <CardBody application={application} />
     </div>
   );
 }

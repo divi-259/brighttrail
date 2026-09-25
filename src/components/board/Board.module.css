@@ -103,10 +103,15 @@
   box-shadow: var(--shadow-md);
 }
 
-.cardDragging {
+.cardPlaceholder {
+  opacity: 0.35;
+}
+
+.cardOverlayGhost {
+  width: 246px;
   box-shadow: var(--shadow-lg);
-  z-index: 10;
-  opacity: 0.9;
+  cursor: grabbing;
+  transform: rotate(-2deg);
 }
 
 .cardCompany {
