@@ -7,6 +7,12 @@ export function createId() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
+function todayISODate() {
+  const now = new Date();
+  const offset = now.getTimezoneOffset();
+  return new Date(now.getTime() - offset * 60000).toISOString().slice(0, 10);
+}
+
 export function blankApplication() {
   return {
     id: createId(),
@@ -14,7 +20,7 @@ export function blankApplication() {
     title: "",
     jobUrl: "",
     status: "saved",
-    appliedDate: "",
+    appliedDate: todayISODate(),
     location: "",
     salaryRange: "",
     contactName: "",

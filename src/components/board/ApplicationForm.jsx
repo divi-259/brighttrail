@@ -43,8 +43,21 @@ export default function ApplicationForm({ initialValue, onSave, onClose, onDelet
     >
       <form id="application-form" onSubmit={handleSubmit}>
         <div className={fieldStyles.row}>
-          <Input label="Company" value={values.company} onChange={set("company")} required autoFocus />
-          <Input label="Job title" value={values.title} onChange={set("title")} required />
+          <Input
+            label="Company"
+            value={values.company}
+            onChange={set("company")}
+            placeholder="e.g. Apple"
+            required
+            autoFocus
+          />
+          <Input
+            label="Job title"
+            value={values.title}
+            onChange={set("title")}
+            placeholder="e.g. Software Engineer"
+            required
+          />
         </div>
 
         <div className={fieldStyles.row}>
