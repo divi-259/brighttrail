@@ -12,8 +12,17 @@
       rel="stylesheet"
     />
     <title>BrightTrail — Job Application Tracker</title>
-    <script type="module" crossorigin src="/brighttrail/assets/index-BB3rSVaO.js"></script>
-    <link rel="stylesheet" crossorigin href="/brighttrail/assets/index-VvMABnw7.css">
+    <script>
+      (function () {
+        var stored = localStorage.getItem("brighttrail.theme");
+        var theme = stored === "light" || stored === "dark"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="/brighttrail/assets/index-FFuaH63H.js"></script>
+    <link rel="stylesheet" crossorigin href="/brighttrail/assets/index-CR8HN5Jf.css">
   </head>
   <body>
     <div id="root"></div>
