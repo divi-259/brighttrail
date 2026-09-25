@@ -6,6 +6,7 @@ import TagInput from "../ui/TagInput";
 import Button from "../ui/Button";
 import fieldStyles from "../ui/Field.module.css";
 import { STATUSES, SOURCES } from "../../lib/statuses";
+import { JOB_TITLE_SUGGESTIONS } from "../../lib/jobTitles";
 import { blankApplication } from "../../lib/storage";
 
 export default function ApplicationForm({ initialValue, onSave, onClose, onDelete }) {
@@ -56,9 +57,16 @@ export default function ApplicationForm({ initialValue, onSave, onClose, onDelet
             value={values.title}
             onChange={set("title")}
             placeholder="e.g. Software Engineer"
+            list="job-title-suggestions"
             required
           />
         </div>
+
+        <datalist id="job-title-suggestions">
+          {JOB_TITLE_SUGGESTIONS.map((title) => (
+            <option key={title} value={title} />
+          ))}
+        </datalist>
 
         <div className={fieldStyles.row}>
           <Select label="Status" value={values.status} onChange={set("status")}>
