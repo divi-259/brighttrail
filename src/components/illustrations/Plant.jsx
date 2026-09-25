@@ -1,4 +1,4 @@
-export default function Plant({ size = 90 }) {
+export default function Plant({ size = 90, potColor = "var(--color-dark)" }) {
   return (
     <svg width={size} height={size * 0.9} viewBox="0 0 100 90" fill="none">
       <path
@@ -18,7 +18,7 @@ export default function Plant({ size = 90 }) {
       />
       <path
         d="M32 88h36l-4-12H36z"
-        fill="var(--color-dark)"
+        fill={potColor}
       />
     </svg>
   );

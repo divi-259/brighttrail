@@ -3,11 +3,13 @@
   --color-primary: #ebb94f;
   --color-primary-hover: #dba638;
   --color-dark: #30302c;
+  --color-dark-soft: #4a4940;
   --color-bg: #fffcf3;
   --color-surface: #ffffff;
   --color-accent: #fff0bb;
   --color-secondary: #8ca88e;
   --color-secondary-hover: #789476;
+  --color-mint: #eaf3e6;
 
   /* Text */
   --text-primary: #30302c;

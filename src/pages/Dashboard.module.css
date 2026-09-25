@@ -1,4 +1,5 @@
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,6 +8,12 @@
   border-radius: var(--radius-lg);
   padding: var(--space-7) var(--space-6);
   margin-bottom: var(--space-5);
+  overflow: hidden;
+}
+
+.heroText {
+  position: relative;
+  z-index: 1;
 }
 
 .heroText h1 {
@@ -24,7 +31,24 @@
 }
 
 .heroArt {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
+}
+
+.heroCloud {
+  position: absolute;
+  top: -8px;
+  left: -46px;
+}
+
+.heroHills {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .stats {
@@ -34,22 +58,36 @@
   margin-bottom: var(--space-5);
 }
 
-.footer {
+.deleteAllRow {
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  background: var(--color-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4) var(--space-5);
-  margin-top: var(--space-5);
+  justify-content: flex-end;
+  margin-top: var(--space-3);
 }
 
-.footer p {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 15px;
+.footer {
+  position: relative;
+  background: var(--color-mint);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin-top: var(--space-5);
+  overflow: hidden;
+}
+
+.footerContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footerHills {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (max-width: 680px) {
@@ -63,8 +101,16 @@
     max-width: none;
   }
 
-  .footer {
+  .heroCloud {
+    display: none;
+  }
+
+  .footerContent {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footerHills {
+    opacity: 0.6;
   }
 }

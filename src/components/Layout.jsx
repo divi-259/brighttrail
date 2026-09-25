@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { Download, RotateCcw, ChevronDown } from "lucide-react";
 import SunMark from "./illustrations/SunMark";
 import Button from "./ui/Button";
@@ -23,10 +23,10 @@ export default function Layout() {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <div className={styles.brand}>
+        <Link to="/" className={styles.brand}>
           <SunMark size={30} />
           <span className={styles.wordmark}>BrightTrail</span>
-        </div>
+        </Link>
 
         <nav className={styles.nav}>
           <NavLink to="/" end className={({ isActive }) => (isActive ? styles.navLinkActive : styles.navLink)}>
