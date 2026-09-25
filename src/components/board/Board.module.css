@@ -33,23 +33,17 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--status-saved-text);
+  background: var(--status-applied-text);
 }
 
-.saved {
-  background: var(--status-saved-text);
-}
 .applied {
   background: var(--status-applied-text);
 }
-.screening {
-  background: var(--status-screening-text);
+.inProgress {
+  background: var(--status-inprogress-text);
 }
-.interview {
-  background: var(--status-interview-text);
-}
-.offer {
-  background: var(--status-offer-text);
+.ghosted {
+  background: var(--status-ghosted-text);
 }
 .rejected {
   background: var(--status-rejected-text);

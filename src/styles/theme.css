@@ -20,16 +20,12 @@
   --border-strong: #ddd4b8;
 
   /* Status pill colors — derived from the core palette, kept warm/earthy */
-  --status-saved-bg: #f2efe3;
-  --status-saved-text: #67665c;
   --status-applied-bg: #fff0bb;
   --status-applied-text: #8a6a1e;
-  --status-screening-bg: #fde0a0;
-  --status-screening-text: #7a5a12;
-  --status-interview-bg: #e3ece1;
-  --status-interview-text: #4c6350;
-  --status-offer-bg: #dcead9;
-  --status-offer-text: #326239;
+  --status-inprogress-bg: #fde0a0;
+  --status-inprogress-text: #7a5a12;
+  --status-ghosted-bg: #f2efe3;
+  --status-ghosted-text: #67665c;
   --status-rejected-bg: #f5e3dc;
   --status-rejected-text: #a24e36;
 

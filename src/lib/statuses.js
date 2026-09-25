@@ -1,9 +1,7 @@
 export const STATUSES = [
-  { id: "saved", label: "Wishlist" },
   { id: "applied", label: "Applied" },
-  { id: "screening", label: "Screening" },
-  { id: "interview", label: "Interview" },
-  { id: "offer", label: "Offer" },
+  { id: "inProgress", label: "In Progress" },
+  { id: "ghosted", label: "Ghosted" },
   { id: "rejected", label: "Rejected" },
 ];
 

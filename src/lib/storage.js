@@ -19,7 +19,7 @@ export function blankApplication() {
     company: "",
     title: "",
     jobUrl: "",
-    status: "saved",
+    status: "applied",
     appliedDate: todayISODate(),
     location: "",
     salaryRange: "",
@@ -33,12 +33,37 @@ export function blankApplication() {
   };
 }
 
+// Maps stage ids from the old 6-stage pipeline onto the current 4-stage one,
+// so applications saved before the pipeline change don't become invisible.
+const LEGACY_STATUS_MIGRATION = {
+  saved: "applied",
+  screening: "inProgress",
+  interview: "inProgress",
+  offer: "inProgress",
+};
+
 export function getApplications() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) return [];
+
+    let migrated = false;
+    const next = parsed.map((app) => {
+      const mapped = LEGACY_STATUS_MIGRATION[app.status];
+      if (mapped) {
+        migrated = true;
+        return { ...app, status: mapped };
+      }
+      return app;
+    });
+
+    if (migrated) {
+      saveApplications(next);
+    }
+
+    return next;
   } catch {
     return [];
   }

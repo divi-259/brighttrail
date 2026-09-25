@@ -6,13 +6,8 @@
   font-size: 12.5px;
   font-weight: 600;
   white-space: nowrap;
-  background: var(--status-saved-bg);
-  color: var(--status-saved-text);
-}
-
-.saved {
-  background: var(--status-saved-bg);
-  color: var(--status-saved-text);
+  background: var(--status-applied-bg);
+  color: var(--status-applied-text);
 }
 
 .applied {
@@ -20,19 +15,14 @@
   color: var(--status-applied-text);
 }
 
-.screening {
-  background: var(--status-screening-bg);
-  color: var(--status-screening-text);
+.inProgress {
+  background: var(--status-inprogress-bg);
+  color: var(--status-inprogress-text);
 }
 
-.interview {
-  background: var(--status-interview-bg);
-  color: var(--status-interview-text);
-}
-
-.offer {
-  background: var(--status-offer-bg);
-  color: var(--status-offer-text);
+.ghosted {
+  background: var(--status-ghosted-bg);
+  color: var(--status-ghosted-text);
 }
 
 .rejected {

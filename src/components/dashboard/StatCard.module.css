@@ -22,19 +22,19 @@
   color: var(--color-primary-hover);
 }
 
-.secondary {
-  background: var(--status-interview-bg);
-  color: var(--status-interview-text);
-}
-
 .warm {
-  background: var(--status-screening-bg);
-  color: var(--status-screening-text);
+  background: var(--status-inprogress-bg);
+  color: var(--status-inprogress-text);
 }
 
-.success {
-  background: var(--status-offer-bg);
-  color: var(--status-offer-text);
+.muted {
+  background: var(--status-ghosted-bg);
+  color: var(--status-ghosted-text);
+}
+
+.danger {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected-text);
 }
 
 .value {

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { FileText, RefreshCw, CalendarClock, Trophy, Plus } from "lucide-react";
+import { FileText, RefreshCw, Ghost, XCircle, Plus } from "lucide-react";
 import SunFace from "../components/illustrations/SunFace";
 import Plant from "../components/illustrations/Plant";
 import StatCard from "../components/dashboard/StatCard";
@@ -14,13 +14,11 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const stats = useMemo(() => {
-    const total = applications.filter((a) => a.status !== "saved").length;
-    const inProgress = applications.filter((a) =>
-      ["applied", "screening", "interview"].includes(a.status)
-    ).length;
-    const interviews = applications.filter((a) => a.status === "interview").length;
-    const offers = applications.filter((a) => a.status === "offer").length;
-    return { total, inProgress, interviews, offers };
+    const total = applications.length;
+    const inProgress = applications.filter((a) => a.status === "inProgress").length;
+    const ghosted = applications.filter((a) => a.status === "ghosted").length;
+    const rejected = applications.filter((a) => a.status === "rejected").length;
+    return { total, inProgress, ghosted, rejected };
   }, [applications]);
 
   return (
@@ -41,8 +39,8 @@ export default function Dashboard() {
       <section className={styles.stats}>
         <StatCard icon={FileText} label="Total Applications" value={stats.total} tone="primary" />
         <StatCard icon={RefreshCw} label="In Progress" value={stats.inProgress} tone="warm" />
-        <StatCard icon={CalendarClock} label="Interviews" value={stats.interviews} tone="secondary" />
-        <StatCard icon={Trophy} label="Offers" value={stats.offers} tone="success" />
+        <StatCard icon={Ghost} label="Ghosted" value={stats.ghosted} tone="muted" />
+        <StatCard icon={XCircle} label="Rejected" value={stats.rejected} tone="danger" />
       </section>
 
       <RecentTable applications={applications} />
