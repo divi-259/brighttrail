@@ -1,15 +1,17 @@
 import { useRef, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { Download, RotateCcw, ChevronDown } from "lucide-react";
+import { Download, RotateCcw, ChevronDown, Sun, Moon } from "lucide-react";
 import SunMark from "./illustrations/SunMark";
 import Button from "./ui/Button";
 import ConfirmDialog from "./ui/ConfirmDialog";
 import { useApplicationsContext } from "../lib/ApplicationsContext";
+import { useThemeContext } from "../lib/ThemeContext";
 import { exportToCSV, exportToExcel } from "../lib/export";
 import styles from "./Layout.module.css";
 
 export default function Layout() {
   const { applications, reset } = useApplicationsContext();
+  const { theme, toggleTheme } = useThemeContext();
   const [exportOpen, setExportOpen] = useState(false);
   const [confirmReset, setConfirmReset] = useState(false);
   const exportRef = useRef(null);
@@ -55,6 +57,15 @@ export default function Layout() {
           <Button variant="ghost" icon={RotateCcw} onClick={() => setConfirmReset(true)}>
             Reset
           </Button>
+          <button
+            type="button"
+            className={styles.themeToggle}
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
       </header>
 

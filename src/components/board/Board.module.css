@@ -48,7 +48,7 @@
 }
 
 .count {
-  background: rgba(48, 48, 44, 0.08);
+  background: var(--overlay-soft);
   color: var(--text-muted);
   font-size: 12px;
   font-weight: 700;
@@ -69,7 +69,7 @@
 }
 
 .columnBodyOver {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--overlay-drop);
 }
 
 .emptyColumn {
